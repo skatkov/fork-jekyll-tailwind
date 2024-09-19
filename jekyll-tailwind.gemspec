@@ -3,20 +3,20 @@
 require_relative "lib/jekyll-tailwind/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "jekyll-tailwind"
+  spec.name = "jekyll-tailwind-cli"
   spec.version = Jekyll::Tailwind::VERSION
-  spec.authors = ["crbelaus"]
-  spec.email = ["cristian@crbelaus.com"]
+  spec.authors = ["skatkov"]
+  spec.email = ["github@skatkov.com"]
 
   spec.summary = "Use Tailwind CLI from your Jekyll site"
   spec.description = "Run TailwindCSS from your Jekyll site without requiring NodeJS"
-  spec.homepage = "https://github.com/crbelaus/jekyll-tailwind"
+  spec.homepage = "https://github.com/skatkov/jekyll-tailwind-cli"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/crbelaus/jekyll-tailwind"
-  spec.metadata["changelog_uri"] = "https://github.com/crbelaus/jekyll-tailwind/blob/main/CHANGELOG.md"
+  spec.metadata["source_code_uri"] = "https://github.com/skatkov/jekyll-tailwind-cli"
+  spec.metadata["changelog_uri"] = "https://github.com/skatkov/jekyll-tailwind-cli/blob/main/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
