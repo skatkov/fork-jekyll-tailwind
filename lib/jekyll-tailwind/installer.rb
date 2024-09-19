@@ -24,11 +24,13 @@ module Jekyll
       @path = "_tailwind/tailwind-#{@target}-#{@version}"
     end
 
-    def install_and_run
+    def check_install
       install unless File.exist?(@path)
+    end
 
-      `#{@path} -i _site/assets/css/app.css -o _site/assets/css/app.css -c #{@config_path}`
+    def build
       Jekyll.logger.info 'Tailwind:', 'Rebuilt _site/assets/css/app.css'
+      `#{@path} --input _site/assets/css/app.css --output _site/assets/css/app.css --config #{@config_path}`
     end
 
     private
