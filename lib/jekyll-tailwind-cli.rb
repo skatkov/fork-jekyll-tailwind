@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative "jekyll-tailwind/version"
-require_relative "jekyll-tailwind/installer"
+require_relative "jekyll-tailwind-cli/version"
+require_relative "jekyll-tailwind-cli/installer"
 
 require "jekyll"
 

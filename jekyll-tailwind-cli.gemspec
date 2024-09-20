@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "lib/jekyll-tailwind/version"
+require_relative "lib/jekyll-tailwind-cli/version"
 
 Gem::Specification.new do |spec|
   spec.name = "jekyll-tailwind-cli"
@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors = ["skatkov"]
   spec.email = ["github@skatkov.com"]
 
-  spec.summary = "Use Tailwind CLI from your Jekyll site"
+  spec.summary = "Use Tailwind CLI with a Jekyll site"
   spec.description = "Run TailwindCSS from your Jekyll site without requiring NodeJS"
   spec.homepage = "https://github.com/skatkov/jekyll-tailwind-cli"
   spec.license = "MIT"
