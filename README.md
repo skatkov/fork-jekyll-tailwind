@@ -25,7 +25,7 @@ module.exports = {
 };
 ```
 
-3. Add **assets/app.css** file with following contents
+3. Add **assets/css/app.css** file with following contents
 ```css
 @tailwind base;
 @tailwind components;
