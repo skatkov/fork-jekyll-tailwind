@@ -2,6 +2,7 @@
 
 **This gem allows you integrate the [TailwindCSS Standalone CLI](https://tailwindcss.com/blog/standalone-cli) in your Jekyll site.** The Tailwind CLI is a standalone executable that doesn't need NodeJS or any other external dependency.
 
+This gem was originally inspired by https://github.com/crbelaus/jekyll-tailwind
 ## Set up
 
 To add this gem to your project you must include it in your Gemfile:
@@ -9,7 +10,7 @@ To add this gem to your project you must include it in your Gemfile:
 1. Add a gem
 ```ruby
 group :jekyll_plugins do
-  gem 'jekyll-tailwind'
+  gem 'jekyll-tailwind-cli'
 end
 ```
 
