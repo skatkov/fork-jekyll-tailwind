@@ -1,7 +1,11 @@
 PATH
   remote: .
   specs:
+<<<<<<< HEAD
     jekyll-tailwind-cli (0.1.0)
+=======
+    jekyll-tailwind-cli (0.3)
+>>>>>>> 437481f (jekyll-tailwind-cli: version 1.1)
       jekyll (>= 3.0, < 5.0)
 
 GEM

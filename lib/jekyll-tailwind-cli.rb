@@ -16,6 +16,6 @@ Jekyll::Hooks.register [:site], :post_read do |site|
   tailwind(site).check_install
 end
 
-Jekyll::Hooks.register [:site], :pre_render do |site|
+Jekyll::Hooks.register [:site], :post_write do |site|
   tailwind(site).build
 end

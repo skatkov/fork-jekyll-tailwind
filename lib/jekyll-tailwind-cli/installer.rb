@@ -30,7 +30,8 @@ module Jekyll
 
     def build
       Jekyll.logger.info 'Tailwind:', 'Rebuilt _site/assets/css/app.css'
-      `#{@path} --input _site/assets/css/app.css --output _site/assets/css/app.css --config #{@config_path}`
+      Jekyll.logger.info 'Tailwind command: #{@path} --input assets/css/app.css --output _site/assets/css/app.css --config #{@config_path}',
+      `#{@path} --input assets/css/app.css --output _site/assets/css/app.css --config #{@config_path}`
     end
 
     private
