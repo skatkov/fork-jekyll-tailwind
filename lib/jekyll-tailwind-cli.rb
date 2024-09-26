@@ -5,24 +5,18 @@ require_relative "jekyll-tailwind-cli/version"
 require "jekyll"
 require "tailwindcss/ruby"
 
-
 module Jekyll
   class Tailwind
     def self.root
       File.dirname(__dir__)
     end
 
-    def self.build
-      Jekyll.logger.info 'Tailwind:', 'Rebuilt _site/assets/css/app.css'
-      compile_command
-    end
-
-    def self.compile_command(debug: false, **kwargs)
+    def self.compile(debug: false, **kwargs)
       command = [
                 Tailwindcss::Ruby.executable(**kwargs),
-                "--input", Jekyll::Tailwind.root.join("assets/css/app.css").to_s,
-                "--output", Jekyll::Tailwind.root.join("_site/assets/css/app.css").to_s,
-                "--config", Jekyll::Tailwind.root.join(@config_path).to_s,
+                "--input", root.join("assets/css/app.css").to_s,
+                "--output", root.join("_site/assets/css/app.css").to_s,
+                "--config", root.join(@config_path).to_s,
               ]
 
       command << "--minify" unless debug
@@ -36,5 +30,5 @@ module Jekyll
 end
 
 Jekyll::Hooks.register [:site], :post_write do |site|
-  Jekyll::Tailwind.build
+  Jekyll::Tailwind.compile
 end
