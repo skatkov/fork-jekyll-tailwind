@@ -16,10 +16,8 @@ module Jekyll
                 Tailwindcss::Ruby.executable(**kwargs),
                 "--input", Jekyll::Tailwind.root.join("assets/css/app.css").to_s,
                 "--output", Jekyll::Tailwind.root.join("_site/assets/css/app.css").to_s,
-                "--config", Jekyll::Tailwind.root.join(@config_path).to_s,
+                "--config", Jekyll::Tailwind.root.join("tailwind.config.js").to_s,
               ]
-
-      command << "--minify" unless debug
 
       postcss_path = Jekyll::Tailwind.root.join("postcss.config.js")
       command += ["--postcss", postcss_path.to_s] if File.exist?(postcss_path)
