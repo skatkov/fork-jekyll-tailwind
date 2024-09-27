@@ -1,21 +1,32 @@
 # frozen_string_literal: true
 
 require_relative "jekyll-tailwind-cli/version"
-require_relative "jekyll-tailwind-cli/installer"
 
 require "jekyll"
+require "tailwindcss/ruby"
 
-def tailwind(site)
-  Jekyll::Tailwind::Installer.new(
-    version: site.config.dig("tailwind", "version"),
-    config_path: site.config.dig("tailwind", "config_path")
-  )
-end
+module Jekyll
+  class Tailwind
+    def self.root
+      @root ||= Pathname.new(File.expand_path('..', __dir__))
+    end
 
-Jekyll::Hooks.register [:site], :post_read do |site|
-  tailwind(site).check_install
+    def self.compile
+      command = [
+                Tailwindcss::Ruby.executable,
+                "--input", "assets/css/app.css",
+                "--output", "_site/assets/css/app.css",
+                "--config", "tailwind.config.js",
+              ]
+
+      postcss_path = "postcss.config.js"
+      command += ["--postcss", postcss_path] if File.exist?(postcss_path)
+
+      `#{command.join(' ')}`
+    end
+  end
 end
 
 Jekyll::Hooks.register [:site], :post_write do |site|
-  tailwind(site).build
+  Jekyll::Tailwind.compile
 end
