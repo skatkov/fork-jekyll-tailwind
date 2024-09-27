@@ -8,21 +8,21 @@ require "tailwindcss/ruby"
 module Jekyll
   class Tailwind
     def self.root
-      File.dirname(__dir__)
+      @root ||= Pathname.new(File.expand_path('..', __dir__))
     end
 
-    def self.compile(debug: false, **kwargs)
+    def self.compile
       command = [
-                Tailwindcss::Ruby.executable(**kwargs),
-                "--input", Jekyll::Tailwind.root.join("assets/css/app.css").to_s,
-                "--output", Jekyll::Tailwind.root.join("_site/assets/css/app.css").to_s,
-                "--config", Jekyll::Tailwind.root.join("tailwind.config.js").to_s,
+                Tailwindcss::Ruby.executable,
+                "--input", "assets/css/app.css",
+                "--output", "_site/assets/css/app.css",
+                "--config", "tailwind.config.js",
               ]
 
-      postcss_path = Jekyll::Tailwind.root.join("postcss.config.js")
-      command += ["--postcss", postcss_path.to_s] if File.exist?(postcss_path)
+      postcss_path = "postcss.config.js"
+      command += ["--postcss", postcss_path] if File.exist?(postcss_path)
 
-      command
+      `#{command.join(' ')}`
     end
   end
 end
